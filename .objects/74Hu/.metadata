@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Rpa Challenge",
+  "Description": "rpachallenge.com practice site for RPA developers",
+  "Type": "App",
+  "Id": "74Hubsvw3U-hgWmXxg2pwg",
+  "Reference": "d0PNgpUzckuaf86pePfGSQ/74Hubsvw3U-hgWmXxg2pwg",
+  "Created": "2026-10-13T14:06:01.5210834Z",
+  "Updated": "2026-10-13T14:06:01.5210834Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.5.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

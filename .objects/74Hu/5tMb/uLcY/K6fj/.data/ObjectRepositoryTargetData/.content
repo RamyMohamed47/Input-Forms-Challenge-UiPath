@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="4GENmU3bwE-O6hTb2u8G4Q" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="1029, 286, 378, 58" DesignTimeScaleFactor="1.25" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='RPA1-FIELD' visibleinnertext='Last Name' /&gt;&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentclass='*inputFields*' tag='FORM' fuzzylevel:parentclass='0.0' /&gt;&lt;webctrl class='*ng-untouched*' ng-reflect-name='labelLastName' parentclass='*ng-untouched*' tag='INPUT' type='' aaname='' fuzzylevel:class='0.0' matching:ng-reflect-name='fuzzy' fuzzylevel:ng-reflect-name='0.0' fuzzylevel:parentclass='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="902f134f-10b4-488c-9c59-1e73703ae1f6" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' url='https://rpachallenge.com/*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="0" />
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="19834e65dc3442b2f3ffe074c9405f5c.jpg" xmlns="">0WuwUhEB_m0qYe9-3KcJ9Vw</imageRef>
+    </TargetAnchorable>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,18 @@
+﻿{
+  "Name": "First Name Input",
+  "Description": "Text input labelled First Name, in the shuffled challenge form",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "Ilye3CjA_UG5DhHi2yk6Uw",
+  "Reference": "d0PNgpUzckuaf86pePfGSQ/Ilye3CjA_UG5DhHi2yk6Uw",
+  "ParentRef": "d0PNgpUzckuaf86pePfGSQ/uLcYJ_RVDE-EW8S041-XMQ",
+  "Created": "2026-10-13T14:08:31.7857174Z",
+  "Updated": "2026-10-13T14:28:42.4966884Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.5.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Result Message",
+  "Description": "Text line under the Congratulations heading reporting success rate and elapsed milliseconds, shown after round ten",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "bQNvcro91k6s7NXCaAIXyg",
+  "Reference": "d0PNgpUzckuaf86pePfGSQ/bQNvcro91k6s7NXCaAIXyg",
+  "ParentRef": "d0PNgpUzckuaf86pePfGSQ/uLcYJ_RVDE-EW8S041-XMQ",
+  "Created": "2026-10-13T14:12:03.2440211Z",
+  "Updated": "2026-10-13T14:12:03.2440211Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.5.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

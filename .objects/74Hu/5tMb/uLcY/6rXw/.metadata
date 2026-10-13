@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Start Button",
+  "Description": "Button that starts the challenge timer, in the instructions panel on the left",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "6rXwF4v5CkqcFhA0O1L6aA",
+  "Reference": "d0PNgpUzckuaf86pePfGSQ/6rXwF4v5CkqcFhA0O1L6aA",
+  "ParentRef": "d0PNgpUzckuaf86pePfGSQ/uLcYJ_RVDE-EW8S041-XMQ",
+  "Created": "2026-10-13T14:08:31.7379455Z",
+  "Updated": "2026-10-13T14:08:31.7379455Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.5.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

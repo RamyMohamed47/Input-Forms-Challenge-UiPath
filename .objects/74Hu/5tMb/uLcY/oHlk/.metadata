@@ -1,0 +1,18 @@
+﻿{
+  "Name": "Email Input",
+  "Description": "Text input labelled Email, in the shuffled challenge form",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "oHlkjkPJB0u3h3wob4KdJA",
+  "Reference": "d0PNgpUzckuaf86pePfGSQ/oHlkjkPJB0u3h3wob4KdJA",
+  "ParentRef": "d0PNgpUzckuaf86pePfGSQ/uLcYJ_RVDE-EW8S041-XMQ",
+  "Created": "2026-10-13T14:08:32.0305586Z",
+  "Updated": "2026-10-13T14:28:42.7433183Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.5.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

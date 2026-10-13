@@ -1,0 +1,6 @@
+{
+  "Name": "InputForms",
+  "ProjectType": "Process",
+  "Description": "Process to inser data into forms with randomly chasnging fields",
+  "MainFile": "Main.xaml"
+}

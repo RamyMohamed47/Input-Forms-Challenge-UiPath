@@ -1,0 +1,363 @@
+<Activity mc:Ignorable="sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd2="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ConfigPath" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Runtime</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="configPath" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_People" />
+      <Variable x:TypeArguments="x:String" Name="outputFolder" />
+      <Variable x:TypeArguments="x:String" Name="runStamp" />
+      <Variable x:TypeArguments="x:String" Name="outputFile" />
+      <Variable x:TypeArguments="x:String" Name="resultText" />
+      <Variable x:TypeArguments="x:Int32" Name="maxRetries" />
+      <Variable x:TypeArguments="x:TimeSpan" Name="retryInterval" />
+      <Variable x:TypeArguments="x:Int32" Name="rowIndex" />
+      <Variable x:TypeArguments="x:Int32" Name="rowNumber" />
+      <Variable x:TypeArguments="x:String" Name="missingFields" />
+      <Variable x:TypeArguments="x:Int32" Name="successCount" />
+    </Sequence.Variables>
+    <Assign DisplayName="Resolve config path (default Config\Config.xlsx)" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[configPath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(in_ConfigPath), "Config\Config.xlsx", in_ConfigPath)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Invoke ReadConfig" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\ReadConfig.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigPath">[configPath]</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[Config]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Set max retries" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[maxRetries]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(Config("MaxRetries"))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Set retry interval" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:TimeSpan">[retryInterval]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:TimeSpan">[TimeSpan.FromSeconds(Convert.ToDouble(Config("RetryIntervalSeconds")))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Set output folder" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[outputFolder]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Path.GetFullPath(Config("OutputFolder").ToString)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Set run timestamp" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[runStamp]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("yyyyMMdd_HHmmss")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Set output file path" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[outputFile]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Path.Combine(outputFolder, "Results_" &amp; runStamp &amp; ".xlsx")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Invoke ReadInput" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\ReadInput.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[Config("InputFilePath").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SheetName">[Config("InputSheetName").ToString]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_Data">[dt_People]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <InvokeMethod DisplayName="Add Status column" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sd:DataColumnCollection">[dt_People.Columns]</InArgument>
+      </InvokeMethod.TargetObject>
+      <InArgument x:TypeArguments="x:String">Status</InArgument>
+      <InArgument x:TypeArguments="s:Type">[GetType(System.String)]</InArgument>
+    </InvokeMethod>
+    <InvokeMethod DisplayName="Add Message column" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Add">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sd:DataColumnCollection">[dt_People.Columns]</InArgument>
+      </InvokeMethod.TargetObject>
+      <InArgument x:TypeArguments="x:String">Message</InArgument>
+      <InArgument x:TypeArguments="s:Type">[GetType(System.String)]</InArgument>
+    </InvokeMethod>
+    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create output folder" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[outputFolder]" />
+    <TryCatch DisplayName="Try - run the challenge" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Rpa Challenge" HealingAgentBehavior="Job" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="3404e60a-6066-45b4-ae28-07910d0d65c2" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <uix:NGoToUrl DisplayName="Go To URL - reload challenge page" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[Config(&quot;ChallengeUrl&quot;).ToString]" Version="V5" />
+                  <uix:NClick ActivateBefore="False" ClickType="Single" DisplayName="Click 'Start'" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable ContentHash="JJy-YD2xZkG2WCpc-NyvVA" DesignTimeRectangle="14, 821, 447, 68" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='BUTTON' aaname='Start' /&gt;" Guid="074c5f5b-e6d7-478f-80da-6e84fc1da2ef" InformativeScreenshot="488831c99e2a91e2c220324ed012012e.jpg" Reference="d0PNgpUzckuaf86pePfGSQ/6rXwF4v5CkqcFhA0O1L6aA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rpa Challenge' url='https://rpachallenge.com/*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.OCREngine>
+              <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd2:Rectangle, x:String))">
+                <ActivityFunc.Argument>
+                  <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                </ActivityFunc.Argument>
+              </ActivityFunc>
+            </uix:NApplicationCard.OCREngine>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" ContentHash="P4xRorxrYUKbYGMuu1JuKg" InformativeScreenshot="df763d085450051ad416181d5fc294bc.jpg" Reference="d0PNgpUzckuaf86pePfGSQ/uLcYJ_RVDE-EW8S041-XMQ" Selector="&lt;html app='chrome.exe' title='Rpa Challenge' url='https://rpachallenge.com/*' /&gt;" Url="https://rpachallenge.com/" Version="V3" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[rowIndex]" DataTable="[dt_People]" DisplayName="For Each Row in dt_People" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Assign DisplayName="Set Excel row number" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[rowNumber]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[rowIndex + 2]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <TryCatch DisplayName="Try - process one row" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                    <TryCatch.Try>
+                      <Sequence DisplayName="Try" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Assign DisplayName="Find empty required fields" sap2010:WorkflowViewState.IdRef="Assign_8">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[missingFields]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[String.Join(", ", dt_People.Columns.Cast(Of DataColumn)().Select(Function(c) c.ColumnName).Where(Function(n) n &lt;&gt; "Status" AndAlso n &lt;&gt; "Message" AndAlso String.IsNullOrWhiteSpace(CurrentRow(n).ToString)))]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If Condition="[Not String.IsNullOrEmpty(missingFields)]" DisplayName="If row has empty required fields" sap2010:WorkflowViewState.IdRef="If_1">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <Throw DisplayName="Throw business exception - incomplete row" Exception="[New BusinessRuleException(&quot;Missing value for: &quot; &amp; missingFields)]" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                        <ui:RetryScope DisplayName="Retry Scope - fill and submit form" sap2010:WorkflowViewState.IdRef="RetryScope_1" LogRetriedExceptions="True" NumberOfRetries="[maxRetries]" RetriedExceptionsLogLevel="Warn" RetryInterval="[retryInterval]">
+                          <ui:RetryScope.ActivityBody>
+                            <ActivityAction>
+                              <Sequence DisplayName="Action" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Invoke FillForm" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\FillForm.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="sd:DataRow" x:Key="in_Row">[CurrentRow]</InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:RetryScope.ActivityBody>
+                          <ui:RetryScope.Condition>
+                            <ActivityFunc x:TypeArguments="x:Boolean" />
+                          </ui:RetryScope.Condition>
+                        </ui:RetryScope>
+                        <Assign DisplayName="Set Status = Success" sap2010:WorkflowViewState.IdRef="Assign_9">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Object">["Success"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log row success" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Row &quot; &amp; rowNumber.ToString &amp; &quot;: submitted &quot; &amp; CurrentRow(&quot;First Name&quot;).ToString &amp; &quot; &quot; &amp; CurrentRow(&quot;Last Name&quot;).ToString]" />
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="ui:BusinessRuleException" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="businessException" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Catch business exception" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                            <Assign DisplayName="Set Status = Failed - Business" sap2010:WorkflowViewState.IdRef="Assign_10">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">["Failed - Business"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="Set Message" sap2010:WorkflowViewState.IdRef="Assign_11">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[CurrentRow("Message")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">[businessException.Message]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:LogMessage DisplayName="Log row business failure" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;Row &quot; &amp; rowNumber.ToString &amp; &quot; failed (business rule, not retried): &quot; &amp; businessException.Message]" />
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                      <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Catch system exception" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                            <Assign DisplayName="Set Status = Failed - System" sap2010:WorkflowViewState.IdRef="Assign_12">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[CurrentRow("Status")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">["Failed - System"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="Set Message" sap2010:WorkflowViewState.IdRef="Assign_13">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[CurrentRow("Message")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Object">[exception.Message]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:LogMessage DisplayName="Log row system failure" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Row &quot; &amp; rowNumber.ToString &amp; &quot; failed after &quot; &amp; maxRetries.ToString &amp; &quot; attempt(s): &quot; &amp; exception.ToString]" />
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+          </ui:ForEachRow>
+          <Assign DisplayName="Count successful rows" sap2010:WorkflowViewState.IdRef="Assign_14">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[successCount]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[dt_People.AsEnumerable().Count(Function(r) r("Status").ToString = "Success")]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <If Condition="[successCount = dt_People.Rows.Count]" DisplayName="If every row was submitted" sap2010:WorkflowViewState.IdRef="If_2">
+            <If.Then>
+              <Sequence DisplayName="Then - capture the result screen" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Invoke CaptureResult" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\CaptureResult.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ScreenshotPath">[Path.Combine(outputFolder, "Result_" &amp; runStamp &amp; ".png")]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_ResultText">[resultText]</OutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:LogMessage DisplayName="Log challenge result" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Challenge result: &quot; &amp; resultText]" />
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else - result screen not reached" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <ui:LogMessage DisplayName="Log incomplete run" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Warn" Message="[&quot;Result screen not captured: only &quot; &amp; successCount.ToString &amp; &quot; of &quot; &amp; dt_People.Rows.Count.ToString &amp; &quot; rows were submitted.&quot;]" />
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="runException" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Catch run-level exception" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <ui:LogMessage DisplayName="Log run failure" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Fatal" Message="[&quot;Run stopped before all rows were processed: &quot; &amp; runException.ToString]" />
+              <Rethrow DisplayName="Rethrow" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally - always write the results workbook" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <ui:WriteRange DataTable="[dt_People]" DisplayName="Write results workbook" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Results" StartingCell="A1" WorkbookPath="[outputFile]" />
+          <ui:LogMessage DisplayName="Log results file" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Results written to &quot; &amp; outputFile]" />
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>

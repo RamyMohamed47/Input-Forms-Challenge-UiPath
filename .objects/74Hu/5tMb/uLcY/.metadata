@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Rpa Challenge Input Forms",
+  "Description": "Input Forms challenge page of rpachallenge.com with the Start button, seven shuffled form fields and Submit",
+  "Type": "Screen",
+  "Id": "uLcYJ_RVDE-EW8S041-XMQ",
+  "Reference": "d0PNgpUzckuaf86pePfGSQ/uLcYJ_RVDE-EW8S041-XMQ",
+  "ParentRef": "d0PNgpUzckuaf86pePfGSQ/5tMbowzD8EKWhd0PapZoHw",
+  "Created": "2026-10-13T14:06:26.2620015Z",
+  "Updated": "2026-10-13T14:06:26.2620015Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.5.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

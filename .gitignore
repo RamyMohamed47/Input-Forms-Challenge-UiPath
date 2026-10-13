@@ -1,0 +1,19 @@
+# UiPath local caches and per-machine settings
+.local/
+.settings/
+
+# Run output (a sample is kept in docs/)
+Output/
+
+# Excel lock files
+~$*.xlsx
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+
+# Local tooling files
+AGENTS.md
+CLAUDE.md
+.claude/
